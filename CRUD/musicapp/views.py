@@ -1,10 +1,8 @@
 #from django.shortcuts import render
-from django.views.generic.edit import CreateView
-#from .models import TodoApp
-from .models import Artiste, Songs, Lyrics
+from rest_framework import viewsets
+from .models import Songs
+from .serializer import SongsSerializer
 
-# Create your views here.
-class MusicAppCreate(CreateView):
-    model = Songs
-    fields = ['title', 'artist_id']
-    template_name = 'home.html'
+class SongsViewSet(viewsets.ModelViewSet):
+    queryset = Songs.objects.all()
+    serializer_class = SongsSerializer

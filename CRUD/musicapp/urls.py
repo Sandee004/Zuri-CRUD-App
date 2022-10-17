@@ -1,6 +1,8 @@
 from django.urls import path
-from .views import MusicAppCreate
+from .views import SongsViewSet
+from rest_framework.routers import DefaultRouter
+from rest_framework import routers, serializers
 
-urlpatterns = [
-    path('', MusicAppCreate.as_view()),
-]
+router = routers.DefaultRouter()
+router.register(r'song', SongsViewSet, basename='song')
+urlpatterns = [] + router.urls
