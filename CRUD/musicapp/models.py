@@ -13,7 +13,7 @@ class Artiste(models.Model):
 
 class Songs(models.Model):
     title = models.CharField(max_length = 150, primary_key = True)
-    date_released = models.IntegerField()
+    date_released = models.CharField(max_length = 30)
     likes = models.IntegerField()
     artist_id = models.IntegerField()
 
